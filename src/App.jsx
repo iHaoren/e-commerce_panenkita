@@ -18,7 +18,7 @@ function App() {
               <div className="p-3">
                 <p className="text-sm text-gray-800 line-clamp-2">Sayur Segar Organik - Paket Panen {item}</p>
                 <p className="font-bold mt-2">Rp 15.000</p>
-                <p className="text-xs text-gray-400 mt-1">Bandung</p>
+                <p className="text-xs text-gray-400 mt-1">Sidoarjo</p>
               </div>
             </div>
           ))}
