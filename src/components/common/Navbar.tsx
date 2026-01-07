@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Leaf, Menu, X } from "lucide-react";
+import { useNavigate } from 'react-router-dom';
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <div className="bg-white">
@@ -91,7 +93,7 @@ function Navbar() {
               >
                 Kontak
               </a>
-              <button className="w-full px-4 py-2 border-2 border-emerald-600 text-gray-600 rounded-lg font-semibold hover:bg-emerald-600 hover:text-white transition shadow-2xs shadow-gray-600">
+              <button className="w-full px-4 py-2 border-2 border-emerald-600 text-gray-600 rounded-lg font-semibold hover:bg-emerald-600 hover:text-white transition shadow-2xs shadow-gray-600" onClick={() => navigate('/login')}>
                 Login
               </button>
               <button className="w-full px-4 py-2 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-800 shadow-2xs shadow-gray-600">

@@ -1,9 +1,21 @@
-import Navbar from "./components/common/Navbar";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LandingPage from './components/pages/LandingPage';
+import LoginPage from './components/pages'
 
-function App() {
-  return (
-    <Navbar />
+
+function App(){
+  return(
+    <Router>
+      <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegisterPage />} />
+      <Route path="/customer" element={<CustomerHome />} />
+      <Route path="/producer" element={<DashboardProducer />} />
+      </Routes>
+    </Router>
   )
 }
+
 
 export default App;
