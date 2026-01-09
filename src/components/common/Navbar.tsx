@@ -51,7 +51,7 @@ function Navbar() {
 
             {/* auth buttons */}
             <div className="hidden md:flex space-x-4">
-              <button className="px-4 py-2 border-2 border-emerald-600 text-emerald-600 rounded-lg font-semibold hover:bg-emerald-600 hover:text-white transition shadow-2xs shadow-gray-500">
+              <button className="px-4 py-2 border-2 border-emerald-600 text-emerald-600 rounded-lg font-semibold hover:bg-emerald-600 hover:text-white transition shadow-2xs shadow-gray-500" onClick={() => navigate('/login')}>
                 Login
               </button>
               <button className="px-4 py-2 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-800 transition shadow-2xs shadow-gray-500">
