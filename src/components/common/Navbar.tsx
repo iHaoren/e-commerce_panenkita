@@ -66,6 +66,12 @@ function Navbar() {
                 {/* This for SEARCH */}
                 <div className="flex-1 relative hidden md:block">
                   <input type="text" placeholder="Cari disini..." className="w-full border rounded-full py-2.5 pl-11 pr-4  text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18}/>
+                </div>
+
+                {/* this for RIGHT ACTION */}
+                <div>
+                  <div></div>
                 </div>
 
               </div>
