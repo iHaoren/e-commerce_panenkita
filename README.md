@@ -1,7 +1,7 @@
 ## Judul Proyek
 
 # PanenKita
-PanenKita adalah platform agribisnis berbasis web untuk mempertemukan produsen pertanian dan pembeli.
+PanenKita adalah platform agribisnis berbasis web untuk mempertemukan produsen panen (petani, peternak, nelayan) dan pembeli.
 
 ## Deskripsi Singkat
 PanenKita membantu para produsen seperti petani, peternak, dan nelayan menjual hasil panen secara langsung ke pembeli. Platform ini fokus pada kemudahan penggunaan dan tampilan yang sederhana agar bisa digunakan oleh pengguna non-teknis.
