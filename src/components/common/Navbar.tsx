@@ -70,11 +70,31 @@ function Navbar() {
                 </div>
 
                 {/* this for RIGHT ACTION */}
-                <div>
-                  <div></div>
+                <div className="hidden md:flex items-center gapp-5 text-sm text-gray-600">
+                  <div className="flex items-center gap-1 cursor-pointer">
+                    Wallet <ChevronDown size={14} />
+                  </div>
+                  <div className="flex items-center gap-1 cursor-pointer">
+                    Indonesia <ChevronDown size={14} />
+                  </div>
                 </div>
 
+                <button onClick={() => navigate('/login')} className="flex items-center gap-1 hover:text-emerald-600">
+                  <User size={18} /> Login
+                </button>
+
+                <button className="relative hover:text-emerald-600">
+                  <ShoppingCart size={20} />
+                  <span className="absolute -top-1 -right-2 bg-emerald-600 text-white text-[10px] w-4 h-4 rounded-full flex-items justify-center">2</span>
+                </button>
               </div>
+
+              {/* this for MOBILE BUTTON */}
+              <button className="ml-auto md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                {isMenuOpen ? <X /> : <Menu />}
+              </button>
+
+
             </nav>
 
   );
