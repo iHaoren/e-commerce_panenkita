@@ -55,8 +55,8 @@ function Navbar() {
 
                 {/* This for MENU */}
                 <div className="hidden lg:flex items-center gap-6 text-sm text-gray-600 ml-6">
-                  <a href="#" className="hover:text-emerald-600">Home</a>
-                  <a href="#" className="hover:text-emerald-600">Shop</a>
+                  <a href="#" className="hover:text-emerald-600">Beranda</a>
+                  <a href="#" className="hover:text-emerald-600">Keranjang</a>
                   <div className="flex items-center gap-1 cursor-pointer hover:text-emerald-600">
                     Kategori <ChevronDown size={14} />
                   </div>
@@ -77,26 +77,37 @@ function Navbar() {
                   <div className="flex items-center gap-1 cursor-pointer">
                     Indonesia <ChevronDown size={14} />
                   </div>
-                </div>
-
                 <button onClick={() => navigate('/login')} className="flex items-center gap-1 hover:text-emerald-600">
-                  <User size={18} /> Login
+                  <User size={18} /> Masuk
                 </button>
 
                 <button className="relative hover:text-emerald-600">
                   <ShoppingCart size={20} />
                   <span className="absolute -top-1 -right-2 bg-emerald-600 text-white text-[10px] w-4 h-4 rounded-full flex-items justify-center">2</span>
                 </button>
-              </div>
+                </div>
 
               {/* this for MOBILE BUTTON */}
               <button className="ml-auto md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
                 {isMenuOpen ? <X /> : <Menu />}
               </button>
+              </div>
 
-
+              {/* this for MOBILE MENU */}
+              {isMenuOpen && (
+                <div className="md:hidden bg-white border-t px-4 py-4 space-y-3 text-sm">
+                  <a href="#" className="block">Beranda</a>
+                  <a href="#" className="block">Keranjang</a>
+                  <a href="#" className="block">Kategori</a>
+                  <a href="#" className="block">Blog</a>
+                  <button onClick={() => navigate('/login')}
+                    className="w-full border rounded-lg py-2 text-white bg-emerald-600 hover:bg-emerald-400 transition">
+                    Masuk
+                  </button>
+                </div>
+              )}
             </nav>
-
+            </header>
   );
 }
 
