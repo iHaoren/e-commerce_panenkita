@@ -66,12 +66,13 @@ export default function RealtimeLocation({intervalMinutes = 5 }: Props) {
       getLocation();
     }, intervalMinutes * 60 * 1000);
 
-    return handleManualSubmit = () => {
+    return () => clearInterval(Interval);
+  }, [useManual, intervalMinutes]);
+  const handleManualSubmit = () => {
       if (!manualCity) return;
       setUseManual(true);
       setLocation(manualCity);
     };
-  })
 }
 
 import { useNavigate } from "react-router-dom";
