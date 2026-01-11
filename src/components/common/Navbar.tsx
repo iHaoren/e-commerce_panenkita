@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Leaf,
   Menu,
@@ -8,9 +8,72 @@ import {
   User,
   ChevronDown,
   Phone,
-  Clock,
   MapPin,
 } from "lucide-react";
+
+// geolocation
+type Props = {
+  intervalMinutes?: number;
+};
+
+export default function RealtimeLocation({intervalMinutes = 5 }: Props) {
+  const [location, setLocation] = useState('Mendeteksi Lokasi...');
+  const [manualCity, setManualCity] = useState('');
+  const [useManual, setUseManual] = useState(false);
+
+  const getLocation = () => {
+    if (!navigator.geolocation) {
+      setLocation('Lokasi tidak didukung');
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      async (pos) => {
+        const { latitude, longitude} = pos.coords;
+
+        try {
+          const res = await fetch(
+            `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
+          );
+
+          const data = await res.json();
+
+          const city =
+          data.address.city ||
+          data.address.county ||
+          data.address.state ||
+          'unknown area';
+
+          const country = data.address.country || '';
+
+          setLocation(`${city}, ${country}`);
+        } catch {
+          setLocation('Lokasi tidak tersedia');
+        }
+      },
+      () => {
+        setLocation('Akses lokasi ditolak');
+      }
+    );
+  };
+
+  useEffect(() => {
+    if (useManual) return;
+
+    getLocation();
+
+    const interval = setInterval(() => {
+      getLocation();
+    }, intervalMinutes * 60 * 1000);
+
+    return handleManualSubmit = () => {
+      if (!manualCity) return;
+      setUseManual(true);
+      setLocation(manualCity);
+    };
+  })
+}
+
 import { useNavigate } from "react-router-dom";
 
 function Navbar() {
@@ -25,9 +88,6 @@ function Navbar() {
           <div className="flex items-center gap-5">
             <span className="flex items-center gap-1">
               <MapPin size={14} /> Sidoarjo, Jawa Timur
-            </span>
-            <span className="flex items-center gap-1">
-              <Clock size={14}/> Setiap hari 24/7
             </span>
           </div>
           <div className="flex items-center gap-2">
